@@ -15,9 +15,10 @@
     <link rel="stylesheet" href="./assets/css/slim.css">
 </head>
 
-<body ng-app="SlimAngularJs">
-    <drl-wrapper>
+<body ng-app="SlimAngularJs" ng-controller="Tes">
+    <drl-wrapper menu="menu">
         <drl-test1></drl-test1>
+        <drl-test2></drl-test2>
     </drl-wrapper>
 
     <script src="./assets/lib/jquery/js/jquery.js"></script>
@@ -31,6 +32,44 @@
     <script src="./assets/lib/perfect-scrollbar/js/perfect-scrollbar.jquery.min.js"></script>
     <script src="./node_modules/angular/angular.js"></script>
     <script src="./assets/dist/app.js"></script>
+    <script>
+        (function () {
+            'use strict';
+
+            window.app
+                .controller('Tes', drl);
+
+            drl.$inject = ['$scope'];
+            function drl($scope) {
+                $scope.menu = [
+                    {
+                        title: 'Tes 1',
+                        icon: 'icon ion-ios-search',
+                        href: '',
+                        menu: [
+                            {
+                                title: 'child 1',
+                                href: ''
+                            },
+                            {
+                                title: 'child 2',
+                                href: ''
+                            },
+                            {
+                                title: 'child 3',
+                                href: ''
+                            }
+                        ]
+                    },
+                    {
+                        title: 'Tes 2',
+                        icon: 'icon ion-ios-search',
+                        href: ''
+                    }
+                ];
+            }
+        })();
+    </script>
     <script src="./assets/js/slim.js"></script>
 </body>
 

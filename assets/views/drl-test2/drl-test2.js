@@ -12,15 +12,15 @@
             controller: drl
         });
 
-    drl.$inject = ['$timeout', 'UtilService'];
-    function drl($timeout, UtilService) {
+    drl.$inject = ['$scope', '$timeout', 'UtilService'];
+    function drl($scope, $timeout, UtilService) {
         let $ctrl = this;
         $ctrl.$onInit = () => {
             UtilService.drlAlert('danger', 'ini title1', 'ini body', () => {
                 console.log('alert1 telah di close');
             });
-            UtilService.drlAlert('danger', 'ini title2', 'ini body', () => {
-                console.log('alert1 telah di close');
+            UtilService.drlAlert('success', 'ini title2', 'ini body', () => {
+                console.log('alert2 telah di close');
             });
         };
     }

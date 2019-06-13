@@ -11,13 +11,38 @@
             template: require('./drl-sidebar.html'),
             controller: drl,
             bindings: {
-                Binding: '=',
+                menu: '=',
             },
         });
 
-    drl.$inject = [];
-    function drl() {
-        let $ctrl = this;
-        $ctrl.$onInit = () => { };
+    drl.$inject = ['$scope'];
+    function drl($scope) {
+        let $ctrl = this,
+            clearActive = () => {
+                $ctrl.menu.forEach(menu => {
+                    if (menu.hasOwnProperty('active')) {
+                        menu.active = false;
+                    }
+                    if (menu.hasOwnProperty('menu')) {
+                        menu.menu.forEach(_menu => {
+                            if (_menu.hasOwnProperty('active')) {
+                                _menu.active = false;
+                            }
+                        });
+                    }
+                });
+            };
+        $ctrl.$onInit = () => { console.log($ctrl.menu) };
+
+        $scope.active = (element, href, elementParent = null) => {
+            if (!element.hasOwnProperty('menu')) {
+                clearActive();
+                element['active'] = true;
+                // go to href disini
+            }
+            if (elementParent !== null) {
+                elementParent['active'] = true;
+            }
+        };
     }
 })();
