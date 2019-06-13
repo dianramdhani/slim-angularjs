@@ -12,6 +12,7 @@
             controller: drl,
             bindings: {
                 menu: '=',
+                menuActiveNow: '='
             },
         });
 
@@ -31,6 +32,7 @@
                         });
                     }
                 });
+                $ctrl.menuActiveNow = [];
             };
         $ctrl.$onInit = () => { console.log($ctrl.menu) };
 
@@ -39,9 +41,11 @@
                 clearActive();
                 element['active'] = true;
                 // go to href disini
+                $ctrl.menuActiveNow.push(element);
             }
             if (elementParent !== null) {
                 elementParent['active'] = true;
+                $ctrl.menuActiveNow.push(elementParent);
             }
         };
     }

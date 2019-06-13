@@ -1,7 +1,8 @@
 <div class="slim-pageheader">
     <ol class="breadcrumb slim-breadcrumb">
-        <li class="breadcrumb-item"><a href="#">Home</a></li>
-        <li class="breadcrumb-item active" aria-current="page">Dashboard</li>
+        <li class="breadcrumb-item" ng-repeat="menuActiveNow in $ctrl.menuActiveNow.slice().reverse() track by $index">
+            {{menuActiveNow.title}}
+        </li>
     </ol>
-    <h6 class="slim-pagetitle">Dashboard 01</h6>
+    <h6 class="slim-pagetitle">{{$ctrl.menuActiveNow[0].title}}</h6>
 </div>
