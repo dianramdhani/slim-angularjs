@@ -18,29 +18,51 @@
 
     drl.$inject = ['$scope'];
     function drl($scope) {
-        let $ctrl = this,
-            clearActive = () => {
+        let $ctrl = this;
+        const clearActive = () => {
+            $ctrl.menu.forEach(menu => {
+                if (menu.hasOwnProperty('active')) {
+                    menu.active = false;
+                }
+                if (menu.hasOwnProperty('menu')) {
+                    menu.menu.forEach(_menu => {
+                        if (_menu.hasOwnProperty('active')) {
+                            _menu.active = false;
+                        }
+                    });
+                }
+            });
+            $ctrl.menuActiveNow = [];
+        };
+
+        $ctrl.$onInit = () => {
+            const checkActive = () => {
+                $ctrl.menuActiveNow = [];
                 $ctrl.menu.forEach(menu => {
                     if (menu.hasOwnProperty('active')) {
-                        menu.active = false;
+                        if (menu.active) {
+                            $scope.active(menu, menu.href);
+                        }
                     }
                     if (menu.hasOwnProperty('menu')) {
                         menu.menu.forEach(_menu => {
                             if (_menu.hasOwnProperty('active')) {
-                                _menu.active = false;
+                                $scope.active(_menu, _menu.href, menu);
                             }
                         });
                     }
                 });
-                $ctrl.menuActiveNow = [];
             };
-        $ctrl.$onInit = () => { console.log($ctrl.menu) };
+
+            checkActive();
+        };
 
         $scope.active = (element, href, elementParent = null) => {
             if (!element.hasOwnProperty('menu')) {
                 clearActive();
                 element['active'] = true;
                 // go to href disini
+                console.log({ href });
                 $ctrl.menuActiveNow.push(element);
             }
             if (elementParent !== null) {
