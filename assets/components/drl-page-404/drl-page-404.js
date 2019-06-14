@@ -1,29 +1,18 @@
-(function() {
+(function () {
     'use strict';
 
     // Usage:
     // Error 404 container.
 
     window.app
-        .component('Component', {
-            template:'htmlTemplate',
-            //templateUrl: 'templateUrl',
-            controller: ControllerController,
-            controllerAs: '$ctrl',
-            bindings: {
-                Binding: '=',
-            },
+        .component('drlPage404', {
+            template: require('./drl-page-404.html'),
+            controller: drl
         });
 
-    ControllerController.$inject = ['dependency1'];
-    function ControllerController(dependency1) {
-        var $ctrl = this;
-        
-
-        ////////////////
-
-        $ctrl.$onInit = function() { };
-        $ctrl.$onChanges = function(changesObj) { };
-        $ctrl.$onDestroy = function() { };
+    drl.$inject = [];
+    function drl() {
+        let $ctrl = this;
+        $ctrl.$onInit = () => { };
     }
 })();
