@@ -15,6 +15,7 @@ require('../components/drl-wrapper/drl-wrapper');
 require('../components/drl-widget1/drl-widget1');
 require('../components/drl-loading/drl-loading');
 require('../components/drl-page-404/drl-page-404');
+require('../components/drl-page-505/drl-page-505');
 
 // VIEWS
 require('../views/drl-test1/drl-test1');
