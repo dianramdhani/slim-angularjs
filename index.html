@@ -16,13 +16,14 @@
 </head>
 
 <body ng-app="SlimAngularJs" ng-controller="Tes">
-    <!-- <drl-wrapper menu="menu">
-    </drl-wrapper> -->
+    <drl-wrapper menu="menu">
+        <drl-test1></drl-test1>
+    </drl-wrapper>
     <!-- <login></login> -->
-    <drl-page-404></drl-page-404>
+    <!-- <drl-page-404></drl-page-404>
     <drl-page-505></drl-page-505>
     <drl-page-500></drl-page-500>
-    <drl-page-503></drl-page-503>
+    <drl-page-503></drl-page-503> -->
 
     <script src="./assets/lib/jquery/js/jquery.js"></script>
     <script src="./assets/lib/popper.js/js/popper.js"></script>
@@ -44,52 +45,65 @@
 
             drl.$inject = ['$scope'];
             function drl($scope) {
-                $scope.menu = [
-                    {
-                        title: 'Tes 1',
-                        icon: 'icon ion-ios-search',
-                        href: '',
-                        menu: [
-                            {
-                                title: 'child 1',
-                                href: 'child1'
-                            },
-                            {
-                                title: 'child 2',
-                                href: 'child2'
-                            },
-                            {
-                                title: 'child 3',
-                                href: 'child3'
-                            }
-                        ]
-                    },
-                    {
-                        title: 'Tes 2',
-                        icon: 'icon ion-ios-search',
-                        href: 'tes2'
-                    },
-                    {
-                        title: 'Tes 3',
-                        icon: 'icon ion-ios-search',
-                        href: '',
-                        menu: [
-                            {
-                                title: 'child 1',
-                                href: 'child31'
-                            },
-                            {
-                                title: 'child 2',
-                                href: 'child32',
-                                active: true
-                            },
-                            {
-                                title: 'child 3',
-                                href: 'child33'
-                            }
-                        ]
-                    },
-                ];
+                $scope.menu = {
+                    sidebar: [
+                        {
+                            title: 'Tes 1',
+                            icon: 'icon ion-ios-search',
+                            href: '',
+                            menu: [
+                                {
+                                    title: 'child 1',
+                                    href: 'child1'
+                                },
+                                {
+                                    title: 'child 2',
+                                    href: 'child2'
+                                },
+                                {
+                                    title: 'child 3',
+                                    href: 'child3'
+                                }
+                            ]
+                        },
+                        {
+                            title: 'Tes 2',
+                            icon: 'icon ion-ios-search',
+                            href: 'tes2'
+                        },
+                        {
+                            title: 'Tes 3',
+                            icon: 'icon ion-ios-search',
+                            href: '',
+                            menu: [
+                                {
+                                    title: 'child 1',
+                                    href: 'child31'
+                                },
+                                {
+                                    title: 'child 2',
+                                    href: 'child32',
+                                },
+                                {
+                                    title: 'child 3',
+                                    href: 'child33'
+                                }
+                            ]
+                        },
+                    ],
+                    dropdownC: [
+                        {
+                            title: 'View Profile',
+                            icon: 'icon ion-person',
+                            href: 'tes2'
+                        },
+                        {
+                            title: 'Edit Profile',
+                            icon: 'icon ion-compose',
+                            href: 'tes3'
+                        }
+                    ]
+                };
             }
         })();
     </script>
