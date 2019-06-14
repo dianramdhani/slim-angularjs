@@ -3,6 +3,8 @@
 
     // Usage:
     // Loading container.
+    // Creates:
+    // Use UtilService.drlLoading.
 
     window.app
         .component('drlLoading', {
