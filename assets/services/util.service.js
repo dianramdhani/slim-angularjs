@@ -31,6 +31,10 @@
         const loadingContainer = angular.element($document[0].body),
             loadingComponent = '<drl-loading></drl-loading>';
         let loadingScope, loadingCompile;
+        /**
+         * Loading for slow request.
+         * @param {Boolean} show Required. True if you want to show loading.
+         */
         function drlLoading(show) {
             if (show === true) {
                 loadingScope = $rootScope.$new();
