@@ -17,6 +17,21 @@
     drl.$inject = ['$scope'];
     function drl($scope) {
         let $ctrl = this;
+        $ctrl.$onInit = () => {
+            const checkActive = () => {
+                $ctrl.menuActiveNow = [];
+                $ctrl.menu.dropdownC.forEach(menu => {
+                    if (menu.hasOwnProperty('active')) {
+                        if (menu.active) {
+                            $scope.active(menu, menu.href);
+                        }
+                    }
+                });
+            };
+
+            checkActive();
+        };
+
         const clearActive = () => {
             $ctrl.menu.sidebar.forEach(menu => {
                 if (menu.hasOwnProperty('active')) {
@@ -36,21 +51,6 @@
                 }
             })
             $ctrl.menuActiveNow = [];
-        };
-
-        $ctrl.$onInit = () => {
-            const checkActive = () => {
-                $ctrl.menuActiveNow = [];
-                $ctrl.menu.dropdownC.forEach(menu => {
-                    if (menu.hasOwnProperty('active')) {
-                        if (menu.active) {
-                            $scope.active(menu, menu.href);
-                        }
-                    }
-                });
-            };
-
-            checkActive();
         };
 
         $scope.active = (element, href) => {
