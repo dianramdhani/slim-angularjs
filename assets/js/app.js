@@ -14,8 +14,10 @@ require('../components/drl-alert/drl-alert');
 require('../components/drl-wrapper/drl-wrapper');
 require('../components/drl-widget1/drl-widget1');
 require('../components/drl-loading/drl-loading');
+require('../components/drl-page-404/drl-page-404');
 
 // VIEWS
 require('../views/drl-test1/drl-test1');
 require('../views/drl-test2/drl-test2');
 require('../views/drl-test3/drl-test3');
+require('../views/login/login');
