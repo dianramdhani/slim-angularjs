@@ -4,9 +4,10 @@
     window.app
         .service('UtilService', UtilService);
 
-    UtilService.$inject = ['$compile', '$rootScope'];
-    function UtilService($compile, $rootScope) {
+    UtilService.$inject = ['$compile', '$rootScope', '$document'];
+    function UtilService($compile, $rootScope, $document) {
         this.drlAlert = drlAlert;
+        this.drlLoading = drlLoading;
 
         /**
         * Alert with modal mode. Before call it, please create div id="drl-alert-container".
@@ -25,6 +26,20 @@
                     }
                 });
             alertContainer.prepend($compile(alertComponent)(alertScope));
+        }
+
+        const loadingContainer = angular.element($document[0].body),
+            loadingComponent = '<drl-loading></drl-loading>';
+        let loadingScope, loadingCompile;
+        function drlLoading(show) {
+            if (show === true) {
+                loadingScope = $rootScope.$new();
+                loadingCompile = $compile(loadingComponent)(loadingScope);
+                loadingContainer.prepend(loadingCompile);
+            } else {
+                loadingScope.$destroy();
+                loadingCompile.remove();
+            }
         }
     }
 })();

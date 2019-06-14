@@ -13,6 +13,7 @@ require('../components/drl-pageheader/drl-pageheader');
 require('../components/drl-alert/drl-alert');
 require('../components/drl-wrapper/drl-wrapper');
 require('../components/drl-widget1/drl-widget1');
+require('../components/drl-loading/drl-loading');
 
 // VIEWS
 require('../views/drl-test1/drl-test1');
