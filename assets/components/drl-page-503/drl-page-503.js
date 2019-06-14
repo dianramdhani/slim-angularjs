@@ -5,7 +5,7 @@
     // Error 505 container.
 
     window.app
-        .component('drlPage505', {
-            template: require('./drl-page-505.html'),
+        .component('drlPage503', {
+            template: require('./drl-page-503.html'),
         });
 })();
